@@ -43,9 +43,9 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ### Describe: Cart()
 
-* Test:  
-* Code:     
-* Expected Output:      
+* Test: "It should construct a Cart object with pizzas and grand total price"  
+* Code: let cart = Cart()    
+* Expected Output: { pizzas = {}, grandTotal = 0 }     
 
 * Test:     
 * Code:     
