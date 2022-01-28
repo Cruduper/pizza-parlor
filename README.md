@@ -46,20 +46,22 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 * Test: "It should add a Topping object at the end of the toppings array in a Pizza object"      
 * Code:    
-pizza1.addTopping( topping[] )
-* Expected Output: {pizza1.toppings[ ..., ...., topping[] }  
+pizza1.addTopping( topping )
+* Expected Output: {pizza1.toppings[ ..., ...., topping ], pizza1.pizzaPrice += topping.price }  
 
 
 ### Describe: Cart()
 
 * Test: "It should construct a Cart object with pizzas and grand total price"  
-* Code: let cart = Cart()    
-* Expected Output: { pizzas = {}, grandTotal = 0 }     
+* Code: let cart1 = Cart()    
+* Expected Output: { pizzas: {}, grandTotal: 0 }     
    
 
-* Test:     
-* Code:     
-* Expected Output:      
+### Describe: Cart.prototype.addPizza()
+
+* Test: "It should add a pizza object to the Cart object and add pizzas price to this.grandTotal"     
+* Code: cart1.addPizza( pizza1 )    
+* Expected Output: {pizzas: [..., ..., pizza1], grandTotal += pizza1.pizzaPrice}     
 
 * Test:     
 * Code:     

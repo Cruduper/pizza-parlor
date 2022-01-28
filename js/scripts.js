@@ -3,18 +3,25 @@ function Cart() {
   grandTotal = 0;
 }
 
+
+Cart.prototype.addPizza = function( pizza ) {
+  this.pizzas.push(pizza);
+  this.grandTotal += pizza.pizzaPrice;
+}
+
 function Pizza()  {
   toppings = {};
   pizzaPrice = 0;
 }
 
-Pizza.prototype.addTopping()  {
-  
+Pizza.prototype.addTopping = function( topping )  {
+  this.toppings.push(topping);
+  pizzaPrice += topping.toppingPrice;
 };
 
 function Topping(toppingListElem)  {
   this.name = toppingListElem[0];
-  this.price = toppingListElem[1];
+  this.toppingPrice = toppingListElem[1];
 }
 
 
