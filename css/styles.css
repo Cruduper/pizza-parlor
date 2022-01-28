@@ -2,6 +2,12 @@
   display: inline-block;
 }  */
 
+.container  {
+  width: 80%;
+  height: 90%;
+  margin: auto;
+}
+
 .singleRadio {
   display: inline-block;
   text-align: center;
@@ -14,4 +20,18 @@
 
 #pageTitle  {
   text-align: center;
+}
+
+#roboger  {
+
+  width: 100%;
+
+  
+  z-index: -1;
+}
+
+#robogerBody  {
+  display: absolute;
+  /* transform: scale(0.4); */
+  
 }

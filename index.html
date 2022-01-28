@@ -9,9 +9,11 @@
   <title>Roboger's Pizza Parlor</title>
 </head>
 <body>
-  <h1 id="pageTitle">Mr. Roboger's Pizza Parlor!</h1>
+  
 
-  <div class="container-lg">
+  <div class="container">
+
+    <h1 id="pageTitle">Mr. Roboger's Pizza Parlor!</h1>
     <form id="size">
       <div class="singleRadio">
         <label for="small" class="singleRadioLabel">Small</label>
@@ -25,8 +27,12 @@
         <label for="small" class="singleRadioLabel">Large</label>
         <input type="radio" id="large" name="pizzaSize" value="large">
       </div>
+
+      <button type="submit" id="sizeSubmit">Submit Size</button>
     </form>
 
-    <img src=
+    <div id="roboger">
+      <img id="robogerBody" src="img/body.png"/>
+    </div>
   </div>
 </body>
