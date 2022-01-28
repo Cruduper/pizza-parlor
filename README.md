@@ -34,6 +34,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
   let topping1 = new Topping(["pepperoni", 3]);
 * Expected Output: { name: "pepperoni", price: 3}
 
+
 ### Describe: Pizza()   
 
 * Test: "It should construct a Pizza object with toppings and price"   
@@ -41,15 +42,20 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
   let pizza1 = new Pizza();   
 * Expected Output: { toppings: {}, pizzaPrice: 0}
 
+### Describe: Pizza.prototype.addTopping()
+
+* Test: "It should add a Topping object at the end of the toppings array in a Pizza object"      
+* Code:    
+pizza1.addTopping( topping[] )
+* Expected Output: {pizza1.toppings[ ..., ...., topping[] }  
+
+
 ### Describe: Cart()
 
 * Test: "It should construct a Cart object with pizzas and grand total price"  
 * Code: let cart = Cart()    
 * Expected Output: { pizzas = {}, grandTotal = 0 }     
-
-* Test:     
-* Code:     
-* Expected Output:      
+   
 
 * Test:     
 * Code:     

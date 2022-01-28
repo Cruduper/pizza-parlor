@@ -1,10 +1,16 @@
 function Cart() {
-
+  pizzas = {};
+  grandTotal = 0;
 }
 
 function Pizza()  {
-  
+  toppings = {};
+  pizzaPrice = 0;
 }
+
+Pizza.prototype.addTopping()  {
+  
+};
 
 function Topping(toppingListElem)  {
   this.name = toppingListElem[0];
