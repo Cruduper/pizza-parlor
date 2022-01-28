@@ -6,12 +6,16 @@ function Cart() {
 
 Cart.prototype.addPizza = function( pizza ) {
   this.pizzas.push(pizza);
-}
+};
+
+Cart.prototype.calcCartPrice = function() {
+
+};
 
 function Pizza()  {
   this.toppings = {};
   this.pizzaPrice = 0;
-  this.size = "";
+  this.size = ["", 0];
 }
 
 Pizza.prototype.addTopping = function( topping )  {
@@ -22,9 +26,15 @@ Pizza.prototype.addSize = function( size )  {
   this.size = size;
 };
 
-Pizza.prototype.calcPrice = function()  {
+Pizza.prototype.calcPizzaPrice = function()  {
+  this.pizzaPrice = 0;
 
-}
+  this.toppings.forEach( function(topping){
+    this.pizzaPrice += topping[1];
+  });
+  this.pizzaPrice += this.size[1];
+
+};
 
 function Topping(toppingListElem)  {
   this.name = toppingListElem[0];

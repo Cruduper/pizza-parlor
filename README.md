@@ -48,6 +48,12 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 * Code: pizza1.addTopping( topping )   
 * Expected Output: { pizza1.toppings[ ..., ...., topping ] }  
 
+### Describe: Pizza.prototype.addSize()
+
+* Test: "It should take a string argument set this.size to that argument"    
+* Code: pizza.addSize("large")    
+* Expected Output: {pizza1.size: "large"}   
+
 
 ### Describe: Cart()
 
@@ -62,19 +68,17 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 * Code: cart1.addPizza( pizza1 )    
 * Expected Output: { cart1.pizzas: [..., ..., pizza1] }     
 
-### Describe: Pizza.prototype.addSize()
+### Describe: Pizza.prototype.calcPizzaPrice()  
 
-* Test: "It should take a string argument set this.size to that argument"    
-* Code: pizza.addSize("large")    
-* Expected Output: {pizza1.size: "large"}     
+* Test: "It should add up the price of all toppings, and size price modifier"     
+* Code: pizza1.calcPizzaPrice()
+* Expected Output: { pizza1.pizzaPrice: (this.toppings[0][1] + this.toppings[1][1] + this.toppings[2][1] + ...) + size[1] }     
 
-* Test:     
-* Code:     
-* Expected Output:      
 
-* Test:     
-* Code:     
-* Expected Output:      
+### Describe: Cart.prototype.calcCartPrice()
+* Test: "It should add up the price of all pizzas in cart"    
+* Code: cart1.calcCartPrice();     
+* Expected Output: { cart.grandTotal: this.pizzas[0].pizzaPrice + this.pizza[1].pizzaPrice + ... + }     
 
 * Test:     
 * Code:     
