@@ -6,8 +6,9 @@ function Pizza()  {
 
 }
 
-function Topping(ToppingListElem)  {
-
+function Topping(toppingListElem)  {
+  this.name = toppingListElem[0];
+  this.price = toppingListElem[1];
 }
 
 
