@@ -45,8 +45,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 ### Describe: Pizza.prototype.addTopping()
 
 * Test: "It should add a Topping object at the end of the toppings array in a Pizza object"      
-* Code:    
-pizza1.addTopping( topping )
+* Code: pizza1.addTopping( topping )   
 * Expected Output: { pizza1.toppings[ ..., ...., topping ] }  
 
 
@@ -61,11 +60,13 @@ pizza1.addTopping( topping )
 
 * Test: "It should add a pizza object to the Cart object"     
 * Code: cart1.addPizza( pizza1 )    
-* Expected Output: { pizzas: [..., ..., pizza1] }     
+* Expected Output: { cart1.pizzas: [..., ..., pizza1] }     
 
-* Test:     
-* Code:     
-* Expected Output:      
+### Describe: Pizza.prototype.addSize()
+
+* Test: "It should take a string argument set this.size to that argument"    
+* Code: pizza.addSize("large")    
+* Expected Output: {pizza1.size: "large"}     
 
 * Test:     
 * Code:     

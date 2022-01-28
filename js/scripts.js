@@ -1,6 +1,6 @@
 function Cart() {
-  pizzas = {};
-  grandTotal = 0;
+  this.pizzas = {};
+  this.grandTotal = 0;
 }
 
 
@@ -9,9 +9,9 @@ Cart.prototype.addPizza = function( pizza ) {
 }
 
 function Pizza()  {
-  toppings = {};
-  pizzaPrice = 0;
-  size = "";
+  this.toppings = {};
+  this.pizzaPrice = 0;
+  this.size = "";
 }
 
 Pizza.prototype.addTopping = function( topping )  {
@@ -19,7 +19,7 @@ Pizza.prototype.addTopping = function( topping )  {
 };
 
 Pizza.prototype.addSize = function( size )  {
-
+  this.size = size;
 };
 
 Pizza.prototype.calcPrice = function()  {
