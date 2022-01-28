@@ -13,10 +13,10 @@ function Topping(toppingListElem)  {
 
 
 const toppingList = [ ["pepperoni", 3], 
-                          ["sausage", 3], 
-                          ["mushrooms", 2], 
-                          ["peppers", 2], 
-                          ["car parts", 30] ]
+                      ["sausage", 3], 
+                      ["mushrooms", 2], 
+                      ["peppers", 2], 
+                      ["car parts", 30] ]
 
 
 
