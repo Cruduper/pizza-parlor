@@ -37,7 +37,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 
 ### Describe: Pizza()   
 
-* Test: "It should construct a Pizza object with toppings and price"   
+* Test: "It should construct a Pizza object with default toppings and price"   
 * Code:
   let pizza1 = new Pizza();   
 * Expected Output: { toppings: {}, pizzaPrice: 0, size: ""}
@@ -47,7 +47,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 * Test: "It should add a Topping object at the end of the toppings array in a Pizza object"      
 * Code:    
 pizza1.addTopping( topping )
-* Expected Output: {pizza1.toppings[ ..., ...., topping ], pizza1.pizzaPrice += topping.price }  
+* Expected Output: { pizza1.toppings[ ..., ...., topping ] }  
 
 
 ### Describe: Cart()
@@ -59,9 +59,9 @@ pizza1.addTopping( topping )
 
 ### Describe: Cart.prototype.addPizza()
 
-* Test: "It should add a pizza object to the Cart object and add pizzas price to this.grandTotal"     
+* Test: "It should add a pizza object to the Cart object"     
 * Code: cart1.addPizza( pizza1 )    
-* Expected Output: {pizzas: [..., ..., pizza1], grandTotal += pizza1.pizzaPrice}     
+* Expected Output: { pizzas: [..., ..., pizza1] }     
 
 * Test:     
 * Code:     

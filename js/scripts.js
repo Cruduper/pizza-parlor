@@ -6,7 +6,6 @@ function Cart() {
 
 Cart.prototype.addPizza = function( pizza ) {
   this.pizzas.push(pizza);
-  this.grandTotal += pizza.pizzaPrice;
 }
 
 function Pizza()  {
@@ -17,8 +16,15 @@ function Pizza()  {
 
 Pizza.prototype.addTopping = function( topping )  {
   this.toppings.push(topping);
-  pizzaPrice += topping.toppingPrice;
 };
+
+Pizza.prototype.addSize = function( size )  {
+
+};
+
+Pizza.prototype.calcPrice = function()  {
+
+}
 
 function Topping(toppingListElem)  {
   this.name = toppingListElem[0];
