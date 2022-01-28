@@ -14,26 +14,45 @@
   <div class="container">
 
     <h1 id="pageTitle">Mr. Roboger's Pizza Parlor!</h1>
-    <form id="size">
-      <div class="singleRadio">
-        <label for="small" class="singleRadioLabel">Small</label>
-        <input type="radio" id="small" name="pizzaSize" value="small">
-      </div>
-      <div class="singleRadio">
-        <label for="small" class="singleRadioLabel">Medium</label>
-        <input type="radio" id="medium" name="pizzaSize" value="medium">
-      </div>
-      <div class="singleRadio">
-        <label for="small" class="singleRadioLabel">Large</label>
-        <input type="radio" id="large" name="pizzaSize" value="large">
-      </div>
+    
+    <div id="topChoices">
+      <form id="size">
+        <div class="singleRadio">
+          <label for="small" class="singleRadioLabel">Small</label>
+          <input type="radio" id="small" name="pizzaSize" value="small">
+        </div>
+        <div class="singleRadio">
+          <label for="small" class="singleRadioLabel">Medium</label>
+          <input type="radio" id="medium" name="pizzaSize" value="medium">
+        </div>
+        <div class="singleRadio">
+          <label for="small" class="singleRadioLabel">Large</label>
+          <input type="radio" id="large" name="pizzaSize" value="large">
+        </div>
 
-      <button type="submit" id="sizeSubmit">Submit Size</button>
-    </form>
+        <button type="submit" id="sizeSubmit">Submit Size</button>
+      </form>
+
+      <div id="topping">
+        <label for="toppingSelect">Select a Topping</label>
+        <select id="toppingSelect">
+          <option value="pepperoni">Pepperoni</option>
+          <option value="">Sausage</option>
+          <option value="">Mushrooms</option>
+          <option value="">Peppers</option>
+          <option value="">Car Parts</option>
+          <option value="">Mystery Topping?</option>
+        </select>
+      </div>
+    </div>
 
     <div id="roboger">
       <img id="robogerBody" src="img/body.png"/>
     </div>
+
+    
+      <img id="pizzaPic" src="img/tempPizza.jpg"/>
+    
   
   </div>
 </body>

@@ -8,9 +8,20 @@
   margin: auto;
 }
 
-/* #size {
-  display: none;  
-} */
+ #size {
+  display: inline;
+  width: 500px;  
+} 
+
+div#topping {
+  display: inline;
+  margin-left: 50px;
+}
+
+#topping #size #sizeSubmit{
+  display:inline-block;
+}
+
 
 .singleRadio {
   display: inline-block;
@@ -42,5 +53,13 @@
   transform: scale(0.4);
   right: 80px;
   top: -100px;
+  z-index: -2;
+}
+
+#pizzaPic {
+  position: absolute;
+  transform: scale(0.8);
+  left: 0px;
+  top: 100px;
   z-index: -3;
 }
