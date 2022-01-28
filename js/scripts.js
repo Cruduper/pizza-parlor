@@ -12,6 +12,7 @@ Cart.prototype.addPizza = function( pizza ) {
 function Pizza()  {
   toppings = {};
   pizzaPrice = 0;
+  size = "";
 }
 
 Pizza.prototype.addTopping = function( topping )  {

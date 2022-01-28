@@ -40,7 +40,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 * Test: "It should construct a Pizza object with toppings and price"   
 * Code:
   let pizza1 = new Pizza();   
-* Expected Output: { toppings: {}, pizzaPrice: 0}
+* Expected Output: { toppings: {}, pizzaPrice: 0, size: ""}
 
 ### Describe: Pizza.prototype.addTopping()
 
