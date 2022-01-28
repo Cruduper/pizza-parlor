@@ -9,7 +9,12 @@ Cart.prototype.addPizza = function( pizza ) {
 };
 
 Cart.prototype.calcCartPrice = function() {
-
+  this.grandTotal = 0;
+  this.pizzas.forEach( function(pizza){
+    this.grandTotal += pizza.pizzaPrice;
+  });
+  
+  return this.grandTotal;
 };
 
 function Pizza()  {
@@ -34,6 +39,7 @@ Pizza.prototype.calcPizzaPrice = function()  {
   });
   this.pizzaPrice += this.size[1];
 
+  return this.pizzaPrice;
 };
 
 function Topping(toppingListElem)  {

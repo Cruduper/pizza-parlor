@@ -1,3 +1,17 @@
  /* label, input {
   display: inline-block;
 }  */
+
+.singleRadio {
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+}
+
+.singleRadioLabel {
+  display: block;
+}
+
+#pageTitle  {
+  text-align: center;
+}
