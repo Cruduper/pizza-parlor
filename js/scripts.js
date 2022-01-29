@@ -50,6 +50,15 @@ function Topping(toppingListElem)  {
 }
 
 
+
+
+
+function displayToppingsToDelete(toppingsToDelete, increment)  {
+  $("#toppingsToDelete").text("")
+  toppingsToDelete.forEach( function(topping) {
+  });
+}
+
 const toppingList = [ ["pepperoni", 3], 
                       ["sausage", 3], 
                       ["mushrooms", 2], 
@@ -66,23 +75,40 @@ const sizeList =    [ ["small", 10],
 let cart = new Cart();
 let tempPizza = new Pizza();
 let tempToppings = [];
+let toppingsToDelete = [];
 let tempSize = ["small", 10];
+let toppingIncrement = 0;
 
 $(document).ready(function() {
 
-  // $("#toppingSelect").attr('selected', true)
-  // $( "#myselect option:selected" ).text()
-  $("#toppingSelect").on('change', function() {
-    //tempToppings.push(parseInt( this.val() ));
-    const indexNum = parseInt( $(this).val() );
-    const tempArr = toppingList[indexNum];
-    tempToppings.push(tempArr);
-
-  });
 
   $("#size").on('change', function()  {
     tempSize = sizeList[ parseInt( $('input[name="pizzaSize"]:checked').val()) ];
   });
+
+  $("#toppingSelect").on('change', function() {
+    if ( $(this).val() != "none" )  {
+      const indexNum = parseInt( $(this).val() );
+      const tempArr = toppingList[indexNum];
+      tempToppings.push(tempArr);
+      toppingsToDelete.push(tempArr);
+      //$("#toppingsToDelete").html( "<option value=" + toppingIncrement +">" + toppingsToDelete[toppingIncrement][0] + "</option>" );
+      $("#deleteToppingSelect").append($('<option>', {
+          value: toppingIncrement,
+          text: toppingsToDelete[toppingIncrement][0]
+        }
+      ));
+      toppingIncrement++;
+    }
+  });
+
+  $("#deleteToppingSelect").on('change', function() {
+    start = parseInt($(this).val())-1
+    let tempArr = tempToppings.slice( start, start ); 
+    tempToppings = tempArr;
+  });
+
+
 
   $("button#submitPizza").click( function(){
     tempToppings.forEach( function(topping) {
