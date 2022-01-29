@@ -17,6 +17,8 @@ Cart.prototype.calcCartPrice = function() {
   return this.grandTotal;
 };
 
+
+
 function Pizza()  {
   this.toppings = {};
   this.pizzaPrice = 0;
@@ -55,12 +57,23 @@ const toppingList = [ ["pepperoni", 3],
                       ["car parts", 30]
                       ["mystery topping", 50] ]
 
+const sizeList =    [ ["small", 10],
+                      ["medium", 14],
+                      ["large", 18]   ]
 
 
 
+let cart = new Cart();
+let tempPizza = new Pizza();
 
 $(document).ready(function() {
-  $("")
+
+  $("#toppingSelect")
+
+  $("button#submitPizza").click( function(){
+    
+    cart.pizzas.push(tempPizza)
+  });
 
 
 });
