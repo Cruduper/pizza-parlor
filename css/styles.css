@@ -8,18 +8,22 @@
   margin: auto;
 }
 
- #size {
+div#topChoices  {
+  height: 100px;
+}
+
+#size  {
   display: inline;
   width: 500px;  
 } 
 
-div#topping {
-  display: inline;
+div#topping, div#deleteTopping {
+  display: inline-block;
   margin-left: 50px;
 }
 
-#topping #size #sizeSubmit{
-  display:inline-block;
+label {
+  display: block;  
 }
 
 
