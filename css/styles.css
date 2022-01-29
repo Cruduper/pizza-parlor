@@ -17,7 +17,7 @@ div#topChoices  {
   width: 500px;  
 } 
 
-div#topping, div#deleteTopping {
+div#topping, div#deleteTopping, #submitPizza {
   display: inline-block;
   margin-left: 50px;
 }
