@@ -54,7 +54,7 @@ const toppingList = [ ["pepperoni", 3],
                       ["sausage", 3], 
                       ["mushrooms", 2], 
                       ["peppers", 2], 
-                      ["car parts", 30]
+                      ["carparts", 30],
                       ["mystery topping", 50] ]
 
 const sizeList =    [ ["small", 10],
@@ -65,15 +65,33 @@ const sizeList =    [ ["small", 10],
 
 let cart = new Cart();
 let tempPizza = new Pizza();
+let tempToppings = [];
+let tempSize = ["small", 10];
 
 $(document).ready(function() {
 
-  $("#toppingSelect")
+  // $("#toppingSelect").attr('selected', true)
+  // $( "#myselect option:selected" ).text()
+  $("#toppingSelect").on('change', function() {
+    //tempToppings.push(parseInt( this.val() ));
+    const indexNum = parseInt( $(this).val() );
+    const tempArr = toppingList[indexNum];
+    tempToppings.push(tempArr);
+
+  });
+
+  $("#size").on('change', function()  {
+    tempSize = sizeList[ parseInt( $('input[name="pizzaSize"]:checked').val()) ];
+  });
 
   $("button#submitPizza").click( function(){
-    
-    cart.pizzas.push(tempPizza)
+    tempToppings.forEach( function(topping) {
+      tempPizza.addTopping(toppingList[ topping ])
+    });
+    tempPizza.size = tempSize
+    cart.pizzas.push(tempPizza);
   });
+
 
 
 });
