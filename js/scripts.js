@@ -136,6 +136,7 @@ $(document).ready(function() {
         alert ("that's WAY too many toppings, 13 is the limit, brother!");
       }
     }
+    $("select").prop('selectedIndex',0); 
   });
 
   $("#deleteToppingSelect").on('change', function() {
@@ -153,6 +154,7 @@ $(document).ready(function() {
       tempToppings[$(selectedOption).val()][0] = "deleted";
       $(selectedOption).remove();
     }
+    
   });
 
   $("button#submitPizza").click( function() {
@@ -182,4 +184,8 @@ $(document).ready(function() {
   $("#pizzaDetails").on('click', "button", function() {
     console.log("you clicked DELETE!");
   })
+});
+
+$("select").change(function(){
+  $("select").not(this).prop('selectedIndex',0);            
 });
