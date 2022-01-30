@@ -53,10 +53,11 @@ function Topping(toppingListElem)  {
 
 
 
-function displayToppingsToDelete(toppingsToDelete, increment)  {
-  $("#toppingsToDelete").text("")
-  toppingsToDelete.forEach( function(topping) {
-  });
+function resetPizza()  {
+  tempToppings = [];
+  toppingIncrement = 0;
+  $("#deleteToppingSelect").children('option:not([value="none"])').remove();
+
 }
 
 const toppingList = [ ["pepperoni", 3], 
@@ -125,9 +126,12 @@ $(document).ready(function() {
     let tempPizza = new Pizza();
     
     tempToppings.forEach( function(topping) {
-      tempPizza.addTopping( [topping[0], topping[1]] );
+      if (topping[0] != "deleted")  {
+        tempPizza.addTopping( [topping[0], topping[1]] );
+      }
     });
     tempPizza.size = [ tempSize[0], tempSize[1] ];
     cart.pizzas.push(tempPizza);
+    resetPizza();
   });
 });
