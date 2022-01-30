@@ -17,8 +17,17 @@ div#sideBar {
   width: 25%;
   height: 60%;
   left: 800px;
-  top: 200px;
+  top: 20px;
   border: 2px solid black;
+}
+
+div#pizzaDetails  {
+  position: relative;
+  width: 25%;
+  height: 30%;
+  left: 800px;
+  border: 2px solid black;
+
 }
 
 #size  {
@@ -75,4 +84,14 @@ label {
   left: -150px;
   top: -150px;
   z-index: -4;
+}
+
+#pizzasInCart {
+  height: 80%;
+  padding: 10px;
+}
+
+#cartTotal, #cartHeader{
+  margin: 3%;
+  text-align: center;
 }

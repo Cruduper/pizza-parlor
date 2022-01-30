@@ -35,13 +35,12 @@ Pizza.prototype.addSize = function( size )  {
 
 Pizza.prototype.calcPizzaPrice = function()  {
   this.pizzaPrice = 0;
-
+  let tempPrice = 0;
   this.toppings.forEach( function(topping){
-    this.pizzaPrice += topping[1];
+    tempPrice += topping[1];
   });
+  this.pizzaPrice = tempPrice;
   this.pizzaPrice += this.size[1];
-
-  return this.pizzaPrice;
 };
 
 function Topping(toppingListElem)  {
@@ -51,7 +50,24 @@ function Topping(toppingListElem)  {
 
 
 
+Pizza.prototype.displayPizzaDetails = function(index) {
+  ("#pizzaDetails").html("");
+  ("#pizzaDetails").html('<p id="' + index + '">pizza #' + index + ': $' + this.pizzaPrice + '<br><p>');
+  this.toppings.forEach( function(topping) {
+    ("#pizzaDetails").append( topping[0] + ", " );
+  });
+}
 
+function displayCart()  {
+  let totalCost = 0;
+  $("#pizzasInCart").html("")
+  cart.pizzas.forEach( function(pizza, index) {
+    $("#pizzasInCart").append( '<p id="' + index + '"> pizza #' + index + ' --- $' + pizza.pizzaPrice + '<p>');
+    totalCost += pizza.pizzaPrice;
+  });
+  
+  $("#totalNumber").text(totalCost);
+}
 
 function resetPizza()  {
   tempToppings = [];
@@ -131,7 +147,19 @@ $(document).ready(function() {
       }
     });
     tempPizza.size = [ tempSize[0], tempSize[1] ];
+    tempPizza.calcPizzaPrice();
     cart.pizzas.push(tempPizza);
     resetPizza();
+    displayCart();
   });
+
+  // $("div#pizzasInCart").on("click", "p", function() {
+  //   displayPizzaDetails( this.attr("id") );
+  // });
+
+  $("#text").on('click', function() {
+    //displayPizzaDetails( this.attr("id") );
+    console.log("we here!");
+  });
+
 });
