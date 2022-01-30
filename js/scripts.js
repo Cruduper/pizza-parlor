@@ -1,5 +1,5 @@
 function Cart() {
-  this.pizzas = {};
+  this.pizzas = [];
   this.grandTotal = 0;
 }
 
@@ -20,9 +20,9 @@ Cart.prototype.calcCartPrice = function() {
 
 
 function Pizza()  {
-  this.toppings = {};
+  this.toppings = [];
   this.pizzaPrice = 0;
-  this.size = ["", 0];
+  this.size = ["small", 10];
 }
 
 Pizza.prototype.addTopping = function( topping )  {
@@ -73,9 +73,7 @@ const sizeList =    [ ["small", 10],
 
 
 let cart = new Cart();
-let tempPizza = new Pizza();
 let tempToppings = [];
-let toppingsToDelete = [];
 let tempSize = ["small", 10];
 let toppingIncrement = 0;
 
@@ -87,37 +85,49 @@ $(document).ready(function() {
   });
 
   $("#toppingSelect").on('change', function() {
-    if ( $(this).val() != "none" )  {
+    if ( ($(this).val() != "none") && ($(this).val() != "deleted")  )  {
       const indexNum = parseInt( $(this).val() );
-      const tempArr = toppingList[indexNum];
-      tempToppings.push(tempArr);
-      toppingsToDelete.push(tempArr);
-      //$("#toppingsToDelete").html( "<option value=" + toppingIncrement +">" + toppingsToDelete[toppingIncrement][0] + "</option>" );
+      index0 = toppingList[indexNum][0];
+      index1 = toppingList[indexNum][1];
+      tempToppings.push([index0, index1]);
+      
       $("#deleteToppingSelect").append($('<option>', {
           value: toppingIncrement,
-          text: toppingsToDelete[toppingIncrement][0]
+          text: tempToppings[toppingIncrement][0]
         }
+
       ));
       toppingIncrement++;
     }
   });
 
   $("#deleteToppingSelect").on('change', function() {
-    start = parseInt($(this).val())-1
-    let tempArr = tempToppings.slice( start, start ); 
-    tempToppings = tempArr;
+    // start = parseInt($(this).val());
+    // tempToppings.splice( start, 1 ); 
+    
+
+    // [attribute='value']
+    // :focus
+    // :selected
+
+    const selectedOption = "#deleteToppingSelect option:selected";
+
+    if ( ($(this).val() != "none") && ($(this).val() != "deleted") )  {
+      tempToppings[$(selectedOption).val()][0] = "deleted";
+      $(selectedOption).remove();
+    }
+    
   });
 
 
 
   $("button#submitPizza").click( function(){
+    let tempPizza = new Pizza();
+    
     tempToppings.forEach( function(topping) {
-      tempPizza.addTopping(toppingList[ topping ])
+      tempPizza.addTopping( [topping[0], topping[1]] );
     });
-    tempPizza.size = tempSize
+    tempPizza.size = [ tempSize[0], tempSize[1] ];
     cart.pizzas.push(tempPizza);
   });
-
-
-
 });
