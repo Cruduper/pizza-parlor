@@ -48,7 +48,14 @@ function Topping(toppingListElem)  {
   this.toppingPrice = toppingListElem[1];
 }
 
-
+function displayCurToppings() {
+  $("#pizzaDetails").html('<p id="curToppings"></p>');
+  tempToppings.forEach( function(topping) {
+    if (topping[0] != "deleted")  {
+      $("#pizzaDetails p#curToppings").append( topping[0] + ", " );
+    }
+  });
+}
 
 function displayPizzaDetails(pizza, id) {
   $("#pizzaDetails").html("");
@@ -136,6 +143,7 @@ $(document).ready(function() {
         alert ("that's WAY too many toppings, 13 is the limit, brother!");
       }
     }
+    displayCurToppings();
     $("select").prop('selectedIndex',0); 
   });
 
@@ -154,7 +162,7 @@ $(document).ready(function() {
       tempToppings[$(selectedOption).val()][0] = "deleted";
       $(selectedOption).remove();
     }
-    
+    displayCurToppings();
   });
 
   $("button#submitPizza").click( function() {
