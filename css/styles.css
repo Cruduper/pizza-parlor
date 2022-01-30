@@ -25,7 +25,7 @@ div#sideBar {
 div#pizzaDetails  {
   position: relative;
   width: 25%;
-  height: 30%;
+  height: 38%;
   left: 800px;
   border: 2px solid black;
 
@@ -93,7 +93,15 @@ label {
   z-index: 2;
 }
 
+#pizzaDetails {
+  padding: 1%;
+}
+
 #cartTotal, #cartHeader{
   margin: 3%;
   text-align: center;
+}
+
+p {
+  margin: 9;
 }

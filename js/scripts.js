@@ -4,7 +4,7 @@ function Cart() {
 }
 
 
-Cart.prototype.addPizza = function( pizza ) {
+Cart.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza);
 };
 
@@ -25,11 +25,11 @@ function Pizza()  {
   this.size = ["small", 10];
 }
 
-Pizza.prototype.addTopping = function( topping )  {
+Pizza.prototype.addTopping = function(topping)  {
   this.toppings.push(topping);
 };
 
-Pizza.prototype.addSize = function( size )  {
+Pizza.prototype.addSize = function(size)  {
   this.size = size;
 };
 
@@ -50,19 +50,26 @@ function Topping(toppingListElem)  {
 
 
 
-function displayPizzaDetails(pizza, index) {
+function displayPizzaDetails(pizza, id) {
   $("#pizzaDetails").html("");
-  $("#pizzaDetails").html('<p id="' + index + '">pizza #' + index + ': $' + pizza.pizzaPrice + '<br><p>');
-  pizza.toppings.forEach( function(topping) {
-    $("#pizzaDetails").append( topping[0] + ", " );
+  
+  $("#pizzaDetails").html('<p id="' + id + '"><strong>Pizza #' + (id+1) + ':</strong> &nbsp;&nbsp; $' + pizza.pizzaPrice + ' &nbsp;&nbsp;&nbsp;&nbsp; <button id="' 
+    + id + '" type="button">DELETE</button></p>');
+    $("#pizzaDetails").append('<p id="toppings"><strong>TOPPINGS:</strong> ');
+  pizza.toppings.forEach( function(topping, index) {
+    $("#pizzaDetails p#toppings").append( topping[0] );
+    if ( index < (pizza.toppings.length - 1) ) {
+      $("#pizzaDetails p#toppings").append( ", ");
+    }
   });
+  $("#pizzaDetails p#toppings").append("<br><strong>SIZE:</strong> " + pizza.size[0]);
 }
 
 function displayCart()  {
   let totalCost = 0;
   $("#pizzasInCart").html("")
-  cart.pizzas.forEach( function(pizza, index) {
-    $("#pizzasInCart").append( '<p id="' + index + '"> pizza #' + index + ' --- $' + pizza.pizzaPrice + '</p>');
+  cart.pizzas.forEach( function(pizza, id) {
+    $("#pizzasInCart").append( '<p id="' + id + '"> pizza #' + (id+1) + ' --- $' + pizza.pizzaPrice + '</p>');
     totalCost += pizza.pizzaPrice;
   });
   
@@ -102,19 +109,23 @@ $(document).ready(function() {
   });
 
   $("#toppingSelect").on('change', function() {
-    if ( ($(this).val() != "none") && ($(this).val() != "deleted")  )  {
-      const indexNum = parseInt( $(this).val() );
-      index0 = toppingList[indexNum][0];
-      index1 = toppingList[indexNum][1];
-      tempToppings.push([index0, index1]);
-      
-      $("#deleteToppingSelect").append($('<option>', {
-          value: toppingIncrement,
-          text: tempToppings[toppingIncrement][0]
-        }
-
-      ));
-      toppingIncrement++;
+    if ( ($(this).val() != "none" ) && ( $(this).val() != "deleted")  )  {
+      if (tempToppings.length <= 12)  {
+        const indexNum = parseInt( $(this).val() );
+        index0 = toppingList[indexNum][0];
+        index1 = toppingList[indexNum][1];
+        tempToppings.push([index0, index1]);
+        
+        $("#deleteToppingSelect").append($('<option>', {
+            value: toppingIncrement,
+            text: tempToppings[toppingIncrement][0]
+          }
+        ));
+        toppingIncrement++;
+      }
+      else  {
+        alert ("that's WAY too many toppings, 13 is the limit, brother!");
+      }
     }
   });
 
@@ -133,12 +144,9 @@ $(document).ready(function() {
       tempToppings[$(selectedOption).val()][0] = "deleted";
       $(selectedOption).remove();
     }
-    
   });
 
-
-
-  $("button#submitPizza").click( function(){
+  $("button#submitPizza").click( function() {
     let tempPizza = new Pizza();
     
     tempToppings.forEach( function(topping) {
@@ -158,8 +166,11 @@ $(document).ready(function() {
   // });
 
   $("#pizzasInCart").on('click', "p", function() {
-    pizzaId = $(this).attr("id");
+    pizzaId = parseInt( $(this).attr("id") );
     displayPizzaDetails( cart.pizzas[pizzaId], pizzaId );
   });
 
+  $("#pizzaDetails").on('click', "button", function() {
+    console.log("you clicked DELETE!");
+  })
 });
