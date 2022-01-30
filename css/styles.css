@@ -8,8 +8,9 @@
   margin: auto;
 }
 
-div#topBar  {
+#topBar  {
   height: 100px;
+  z-index: 3;
 }
 
 div#sideBar {
@@ -67,7 +68,7 @@ label {
   right: 0;
   top: 0;
   
-  z-index: -1;
+  z-index: 0;
 }
 
 #robogerBody  {
@@ -82,13 +83,14 @@ label {
   position: absolute;
   transform: scale(0.8);
   left: -150px;
-  top: -150px;
+  top: -100px;
   z-index: -4;
 }
 
 #pizzasInCart {
   height: 80%;
   padding: 10px;
+  z-index: 2;
 }
 
 #cartTotal, #cartHeader{
