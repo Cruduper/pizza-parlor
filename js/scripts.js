@@ -110,7 +110,16 @@ $(document).ready(function() {
 
   $("#toppingSelect").on('change', function() {
     if ( ($(this).val() != "none" ) && ( $(this).val() != "deleted")  )  {
-      if (tempToppings.length <= 12)  {
+
+      let curToppingCount = 0;
+
+      tempToppings.forEach( function(topping){
+        if (topping[0] != "deleted")  {
+          curToppingCount++;
+        }
+      });
+
+      if (curToppingCount <= 12)  {
         const indexNum = parseInt( $(this).val() );
         index0 = toppingList[indexNum][0];
         index1 = toppingList[indexNum][1];
