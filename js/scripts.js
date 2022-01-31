@@ -89,6 +89,15 @@ function displayCart()  {
   $("#totalNumber").text(totalCost);
 }
 
+function displayToppingImages() {
+  tempToppings.forEach( function(topping) {
+    if( topping[0] != "deleted")
+      $("#" + topping[0] ).show();
+  });
+}
+
+
+
 function resetPizza()  {
   tempToppings = [];
   toppingIncrement = 0;
@@ -100,8 +109,8 @@ const toppingList = [ ["pepperoni", 3],
                       ["sausage", 3], 
                       ["mushrooms", 2], 
                       ["peppers", 2], 
-                      ["motor oil", 13],
-                      ["mystery???", 20] ]
+                      ["motor-oil", 13],
+                      ["mystery", 20] ]
 
 const sizeList =    [ ["small", 10],
                       ["medium", 14],
@@ -113,6 +122,7 @@ let tempSize = ["small", 10];
 let toppingIncrement = 0;
 
 $(document).ready(function() {
+
 
   //change size
   $("#size").on('change', function()  {
@@ -149,6 +159,7 @@ $(document).ready(function() {
       }
     }
     displayCurToppings();
+    displayToppingImages();
     $("select").prop('selectedIndex',0); 
   });
 
