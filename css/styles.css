@@ -1,7 +1,3 @@
- /* label, input {
-  display: inline-block;
-}  */
-
 .container  {
   width: 1080px;
   height: 800px;
@@ -31,7 +27,7 @@ div#pizzaDetails  {
 
 }
 
-#size  {
+#size {
   display: inline;
   width: 500px;  
 } 
@@ -67,7 +63,6 @@ label {
   height: 100%;
   right: 0;
   top: 0;
-  
   z-index: 0;
 }
 
@@ -79,7 +74,7 @@ label {
   z-index: -2;
 }
 
-#cheesePizza, #motor-oil, #pepperoni, #mushrooms, #sausage, #peppers, #mystery   {
+#cheesePizza, #motor-oil, #pepperoni, #mushrooms, #sausage, #peppers, #mystery  {
   position: absolute;
   transform: scale(0.8);
   left: -150px;
@@ -101,10 +96,20 @@ label {
   padding: 1%;
 }
 
-#cartTotal, #cartHeader{
+#cartTotal  {
   margin: 3%;
   text-align: center;
 }
+
+#cartHeader {
+  margin: 3%;
+  display: inline;
+}
+
+#info {
+  display: inline;
+  font-size: 10pt;
+} 
 
 p {
   margin: 9;
