@@ -2,7 +2,7 @@
 
 #### By _**Eric Crudup**_
 
-#### _A mock ordering form for ordering multiple pizzas from a pizza parlor_
+#### _A mock ordering form for ordering multiple pizzas from a pizza parlor_ [SITE LINK](https://cruduper.github.io/pizza-parlor)
 
 ## Technologies Used
 
@@ -15,13 +15,9 @@
 
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
-
-_{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? How should I set up my databases? Is there other code this application depends on? We recommend deleting the project from your desktop, re-cloning the project from GitHub, and writing down all the steps necessary to get the project working again.}_
+* clone this repository to your local machine using git
+* from the git directory you downloaded, navigate to the top level directory 
+* open the .index.html file in a modern web browser
 
 ## Test
 
@@ -36,7 +32,7 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 ### Describe: Pizza()   
 
 * Test: "It should construct a Pizza object with default toppings and price"   
-* Code:
+* Code:   
   let pizza1 = new Pizza();   
 * Expected Output: { toppings: {}, pizzaPrice: 0, size: ""}
 
