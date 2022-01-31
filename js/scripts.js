@@ -1,3 +1,4 @@
+    //*****Business Logic
 //cart Object and methods
 function Cart() {
   this.pizzas = [];
@@ -49,7 +50,8 @@ function Topping(toppingListElem)  {
   this.toppingPrice = toppingListElem[1];
 }
 
-//UI Logic 
+
+    //*****UI Logic 
 function displayCurToppings() {
   $("#pizzaDetails").html("<p><strong>New Pizza's Toppings</strong></p>");
   $("#pizzaDetails").append('<p id="curToppings"></p>');
@@ -96,13 +98,27 @@ function displayToppingImages() {
   });
 }
 
-
+function hideToppingImages( toppingArg)   {
+  if (toppingArg === "hideAll" )  {
+    $(".toppingClass" ).hide();
+  }
+  else  {
+    extraToppings = 0;
+    tempToppings.forEach( function(topping) {
+      if( (topping[0] != "deleted") && (topping[0] === toppingArg) )  {
+            extraToppings++; 
+        }
+      });
+      if (extraToppings <= 1) {
+        $("#" + toppingArg ).hide();
+      }
+  }
+}
 
 function resetPizza()  {
   tempToppings = [];
   toppingIncrement = 0;
   $("#deleteToppingSelect").children('option:not([value="none"])').remove();
-
 }
 
 const toppingList = [ ["pepperoni", 3], 
@@ -122,7 +138,6 @@ let tempSize = ["small", 10];
 let toppingIncrement = 0;
 
 $(document).ready(function() {
-
 
   //change size
   $("#size").on('change', function()  {
@@ -163,16 +178,16 @@ $(document).ready(function() {
     $("select").prop('selectedIndex',0); 
   });
 
-
   //delete topping
   $("#deleteToppingSelect").on('change', function() {
     const selectedOption = "#deleteToppingSelect option:selected";
-
+    hideToppingImages( tempToppings[$(this).val()][0] );
     if ( ($(this).val() != "none") && ($(this).val() != "deleted") )  {
       tempToppings[$(selectedOption).val()][0] = "deleted";
       $(selectedOption).remove();
     }
     displayCurToppings();
+    
   });
 
   //click button to add pizza
@@ -189,6 +204,7 @@ $(document).ready(function() {
     cart.pizzas.push(tempPizza);
     resetPizza();
     displayCart();
+    hideToppingImages("hideAll");
     $("#pizzaDetails").html("");
 
     if (cart.pizzas.length > 0) {
