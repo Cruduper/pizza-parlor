@@ -1,19 +1,17 @@
-# _{Application Name}_
+# _Pizza Parlor_
 
-#### By _**{List of contributors}**_
+#### By _**Eric Crudup**_
 
-#### _{Brief description of application}_
+#### _A mock ordering form for ordering multiple pizzas from a pizza parlor_
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* _HTML_
+* _CSS_
+* _Javascript_
+* _jQuery_
+* _Bootstrap_
 
-## Description
-
-_{This is a detailed description of your application. Give as much detail as needed to explain what the application does as well as any other information you want users or other developers to have.}_
 
 ## Setup/Installation Requirements
 
@@ -79,74 +77,15 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 * Test: "It should add up the price of all pizzas in cart"    
 * Code: cart1.calcCartPrice();     
 * Expected Output: { cart.grandTotal: this.pizzas[0].pizzaPrice + this.pizza[1].pizzaPrice + ... + }     
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
-
-* Test:     
-* Code:     
-* Expected Output:      
+    
 
 ## Known Bugs
 
 * _Site is not very responsive to different screen sizes_
-* _ _
+* _Pizza # displayed in cart and in pizzaDetails box includes deleted pizzas in its increment_
 
 ## License
 
-_{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
+[MIT](https://opensource.org/licenses/MIT)
 
-Copyright (c) _date_ _author name(s)_
+Copyright (c) _2022_  _Eric Crudup_
