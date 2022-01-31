@@ -1,7 +1,8 @@
 .container  {
-  width: 1080px;
+  width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
   height: 800px;
-  margin: auto;
 }
 
 #topBar  {
@@ -11,18 +12,18 @@
 
 div#sideBar {
   position: relative;
-  width: 25%;
+  width: 28%;
   height: 60%;
-  left: 800px;
-  top: 20px;
+  left: 725px;
+  top: 13px;
   border: 2px solid black;
 }
 
 div#pizzaDetails  {
   position: relative;
-  width: 25%;
+  width: 28%;
   height: 38%;
-  left: 800px;
+  left: 725px;
   border: 2px solid black;
 
 }
@@ -34,7 +35,7 @@ div#pizzaDetails  {
 
 div#topping, div#deleteTopping, #submitPizza {
   display: inline-block;
-  margin-left: 50px;
+  margin-left: 7px;
 }
 
 label {
@@ -57,21 +58,13 @@ label {
   margin: 3%;
 }
 
-#roboger  {
+#mainArea  {
   position: relative;
   width: 100%;
   height: 100%;
   right: 0;
   top: 0;
   z-index: 0;
-}
-
-#robogerBody  {
-  position: fixed;
-  transform: scale(0.4);
-  right: 80px;
-  top: -100px;
-  z-index: -2;
 }
 
 #cheesePizza, #motor-oil, #pepperoni, #mushrooms, #sausage, #peppers, #mystery  {
@@ -97,12 +90,14 @@ label {
 }
 
 #cartTotal  {
-  margin: 3%;
+  margin: 2%;
+  font-size: 16pt;
   text-align: center;
 }
 
 #cartHeader {
-  margin: 3%;
+  margin: 2%;
+  font-size: 16pt;
   display: inline;
 }
 
