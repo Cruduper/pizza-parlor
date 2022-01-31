@@ -77,7 +77,7 @@
 
 ## Known Bugs
 
-* _Site is not very responsive to different screen sizes_
+* _Site is not very responsive to different screen sizes, its desktop only for now_
 * _Pizza # displayed in cart and in pizzaDetails box includes deleted pizzas in its increment_
 * _submit button says "add ANOTHER Pizza" even after deleting all previous pizzas from cart_
 
