@@ -1,8 +1,8 @@
+//cart Object and methods
 function Cart() {
   this.pizzas = [];
   this.grandTotal = 0;
 }
-
 
 Cart.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza);
@@ -17,12 +17,12 @@ Cart.prototype.calcCartPrice = function() {
   return this.grandTotal;
 };
 
-
-
+//Pizza object and methods
 function Pizza()  {
   this.toppings = [];
   this.pizzaPrice = 0;
   this.size = ["small", 10];
+  this.deleted = false;
 }
 
 Pizza.prototype.addTopping = function(topping)  {
@@ -43,13 +43,17 @@ Pizza.prototype.calcPizzaPrice = function()  {
   this.pizzaPrice += this.size[1];
 };
 
+//Topping object
 function Topping(toppingListElem)  {
   this.name = toppingListElem[0];
   this.toppingPrice = toppingListElem[1];
 }
 
+//UI Logic 
 function displayCurToppings() {
-  $("#pizzaDetails").html('<p id="curToppings"></p>');
+  $("#pizzaDetails").html("<p><strong>New Pizza's Toppings</strong></p>");
+  $("#pizzaDetails").append('<p id="curToppings"></p>');
+
   tempToppings.forEach( function(topping) {
     if (topping[0] != "deleted")  {
       $("#pizzaDetails p#curToppings").append( topping[0] + ", " );
@@ -76,8 +80,10 @@ function displayCart()  {
   let totalCost = 0;
   $("#pizzasInCart").html("")
   cart.pizzas.forEach( function(pizza, id) {
-    $("#pizzasInCart").append( '<p id="' + id + '"> pizza #' + (id+1) + ' --- $' + pizza.pizzaPrice + '</p>');
-    totalCost += pizza.pizzaPrice;
+    if (pizza.deleted === false)  {
+      $("#pizzasInCart").append( '<p id="' + id + '"> pizza #' + (id+1) + ' --- $' + pizza.pizzaPrice + '</p>');
+      totalCost += pizza.pizzaPrice;
+    }
   });
   
   $("#totalNumber").text(totalCost);
@@ -94,14 +100,12 @@ const toppingList = [ ["pepperoni", 3],
                       ["sausage", 3], 
                       ["mushrooms", 2], 
                       ["peppers", 2], 
-                      ["carparts", 30],
-                      ["mystery topping", 50] ]
+                      ["motor oil", 13],
+                      ["mystery???", 20] ]
 
 const sizeList =    [ ["small", 10],
                       ["medium", 14],
                       ["large", 18]   ]
-
-
 
 let cart = new Cart();
 let tempToppings = [];
@@ -110,11 +114,12 @@ let toppingIncrement = 0;
 
 $(document).ready(function() {
 
-
+  //change size
   $("#size").on('change', function()  {
     tempSize = sizeList[ parseInt( $('input[name="pizzaSize"]:checked').val()) ];
   });
 
+  //select topping
   $("#toppingSelect").on('change', function() {
     if ( ($(this).val() != "none" ) && ( $(this).val() != "deleted")  )  {
 
@@ -147,15 +152,9 @@ $(document).ready(function() {
     $("select").prop('selectedIndex',0); 
   });
 
+
+  //delete topping
   $("#deleteToppingSelect").on('change', function() {
-    // start = parseInt($(this).val());
-    // tempToppings.splice( start, 1 ); 
-    
-
-    // [attribute='value']
-    // :focus
-    // :selected
-
     const selectedOption = "#deleteToppingSelect option:selected";
 
     if ( ($(this).val() != "none") && ($(this).val() != "deleted") )  {
@@ -165,6 +164,7 @@ $(document).ready(function() {
     displayCurToppings();
   });
 
+  //click button to add pizza
   $("button#submitPizza").click( function() {
     let tempPizza = new Pizza();
     
@@ -178,22 +178,26 @@ $(document).ready(function() {
     cart.pizzas.push(tempPizza);
     resetPizza();
     displayCart();
+    $("#pizzaDetails").html("");
+
+    if (cart.pizzas.length > 0) {
+      $("button#submitPizza").html("Add ANOTHER pizza!");
+    }
+    else  {
+      $("button#submitPizza").html("Add this pizza!");
+    }
   });
 
-  // $("div#pizzasInCart").on("click", "p", function() {
-  //   displayPizzaDetails( this.attr("id") );
-  // });
-
+  //click on a pizza in the cart
   $("#pizzasInCart").on('click', "p", function() {
     pizzaId = parseInt( $(this).attr("id") );
     displayPizzaDetails( cart.pizzas[pizzaId], pizzaId );
   });
 
+  //click delete button in pizza details window
   $("#pizzaDetails").on('click', "button", function() {
-    console.log("you clicked DELETE!");
+    cart.pizzas[this.id].deleted = true;
+    $("#pizzaDetails").html("");
+    displayCart();
   })
-});
-
-$("select").change(function(){
-  $("select").not(this).prop('selectedIndex',0);            
 });
