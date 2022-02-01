@@ -192,26 +192,40 @@ $(document).ready(function() {
 
   //click button to add pizza
   $("button#submitPizza").click( function() {
-    let tempPizza = new Pizza();
-    
-    tempToppings.forEach( function(topping) {
-      if (topping[0] != "deleted")  {
-        tempPizza.addTopping( [topping[0], topping[1]] );
+    let curPizzaCount = 0;
+
+    cart.pizzas.forEach( function(pizza){
+      if (pizza.deleted != true)  {
+        curPizzaCount++;
       }
     });
-    tempPizza.size = [ tempSize[0], tempSize[1] ];
-    tempPizza.calcPizzaPrice();
-    cart.pizzas.push(tempPizza);
-    resetPizza();
-    displayCart();
-    hideToppingImages("hideAll");
-    $("#pizzaDetails").html("");
 
-    if (cart.pizzas.length > 0) {
-      $("button#submitPizza").html("Add ANOTHER pizza!");
+    if (curPizzaCount <= 8)
+    {
+      let tempPizza = new Pizza();
+      
+      tempToppings.forEach( function(topping) {
+        if (topping[0] != "deleted")  {
+          tempPizza.addTopping( [topping[0], topping[1]] );
+        }
+      });
+      tempPizza.size = [ tempSize[0], tempSize[1] ];
+      tempPizza.calcPizzaPrice();
+      cart.pizzas.push(tempPizza);
+      resetPizza();
+      displayCart();
+      hideToppingImages("hideAll");
+      $("#pizzaDetails").html("");
+
+      if (cart.pizzas.length > 0) {
+        $("button#submitPizza").html("Add ANOTHER pizza!");
+      }
+      else  {
+        $("button#submitPizza").html("Add this pizza!");
+      }
     }
-    else  {
-      $("button#submitPizza").html("Add this pizza!");
+    else {
+      alert("that's WAY too many pizzas brother, 9 is the limit!")
     }
   });
 
